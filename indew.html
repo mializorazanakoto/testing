@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Stress Tester | Adversarial Peer Review</title>
+    <meta name="description" content="AI-powered adversarial peer review of space science abstracts. Identifying weaknesses and suggesting improvements.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,400;0,700;1,400&family=Fira+Code:wght@400;500&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="journal-meta">
+                <span>VOL. 42 | NO. 4 | APRIL 2026</span>
+                <h1>SPACE SCIENCE STRESS TESTER</h1>
+            </div>
+            <div class="status-tag">STRESS TEST ACTIVE</div>
+        </header>
+
+        <main>
+            <div class="manuscript-panel">
+                <div class="panel-header">
+                    <h2>MANUSCRIPT #LUN-2026-084</h2>
+                    <span class="badge">ORIGINAL ABSTRACT</span>
+                </div>
+                <article class="abstract-content">
+                    <h3>Continuous Accumulation of Volatiles in Lunar South Pole Cold Traps: A Multi-Epoch Modeling Approach</h3>
+                    <p class="authors">Selene Lunin, Orion Vance, et al.</p>
+                    <div class="text-body">
+                        "Recent observations from the Lunar Reconnaissance Orbiter (LRO) suggest that the distribution of water ice in permanently shadowed regions (PSRs) is non-uniform and highly dependent on crater morphology. We present a numerical simulation model that tracks volatile migration and sequestration over a 3.5-billion-year period. Our results indicate that cometary impacts are not the sole source of lunar water; rather, a continuous flux of micro-meteoroids and solar-wind-induced hydroxyl production contributes significantly (approx. 45%) to the total ice volume. This model aligns with current neutron spectrometer data but suggests that subsurface ice layers are much older than previously estimated, with implications for future Artemis landing site selection."
+                    </div>
+                </article>
+            </div>
+
+            <div class="review-panel">
+                <div class="panel-header">
+                    <h2>PEER REVIEW REPORT</h2>
+                    <span class="badge reviewer">REVIEWER 2</span>
+                </div>
+                <div id="review-content" class="review-body">
+                    <p class="recommendation">RECOMMENDATION: MAJOR REVISION / REJECT</p>
+                    <div class="review-text">
+                        <p>While the authors attempt to tackle a relevant problem, the methodology is fundamentally flawed and the conclusions are largely speculative.</p>
+                        
+                        <div class="weakness-item">
+                            <h4>1. TEMPORAL FLUX INCONSISTENCY</h4>
+                            <p>The model assumes a constant micro-meteoroid flux over 3.5 Ga, which contradicts recent geochemical evidence of the Late Heavy Bombardment tail. The authors must account for decaying flux gradients.</p>
+                        </div>
+
+                        <div class="weakness-item">
+                            <h4>2. LOSS MECHANISM NEGLECT</h4>
+                            <p>The claim that solar-wind-induced hydroxyl contributes 45% is unsupported. The authors completely ignore the loss mechanism of UV photolysis during migration phases, likely overestimating retention by 2-3x.</p>
+                        </div>
+
+                        <div class="weakness-item">
+                            <h4>3. SCALE ALIASING ERRORS</h4>
+                            <p>The comparison with LRO neutron data is superficial. The resolution of the model (~50km) does not match the 10km scale of the instrument, leading to significant aliasing errors that mask local gradients.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="improve-btn" class="primary">APPLY CONCRETE IMPROVEMENTS</button>
+                    <button id="export-btn">EXPORT FINAL RESPONSE</button>
+                </div>
+            </div>
+        </main>
+
+        <div id="improvement-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>CONCRETE IMPROVEMENTS</h3>
+                <ul class="improvement-list">
+                    <li>
+                        <strong>Update Flux Models:</strong> Integrate the *Hartmann 2024* decaying flux curve instead of constant 3.5 Ga averages.
+                    </li>
+                    <li>
+                        <strong>Photolytic Depletion:</strong> Add a photolysis-rate variable (λp) to the migration equation to account for hydroxyl loss.
+                    </li>
+                    <li>
+                        <strong>Nested Meshing:</strong> Implement a nested grid (1km resolution) around the Shackleton and Amundsen craters to validate against LRO-LAMP data.
+                    </li>
+                </ul>
+                <button id="close-modal">CLOSE</button>
+            </div>
+        </div>
+
+        <footer>
+            <p>INTEGRITY VERIFICATION SYSTEM | POWERED BY ANTIGRAVITY AI</p>
+        </footer>
+    </div>
+    <script type="module" src="./main.js"></script>
+</body>
+</html>
